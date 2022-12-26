@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1 align="center">Welcome Back, {{ user.name }}!</h1>
+{% else %}
+<h1 align="center">To proceed, login to your account.</h1>
+{% endif %}
+{% for note in user.notes %}
+<p>{{ note.text }}</p>
+{% endfor %}
+{% endblock %}
